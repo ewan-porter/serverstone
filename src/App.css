@@ -351,18 +351,18 @@ width: 70%;
 .exchange-image{
   margin: 0px 10px !important;
 }
-.search-crypto{
+.search-driver{
   margin: 20px auto 30px auto;
   width: 250px;
 }
-.crypto-card-container{
+.f1-card-container{
   min-height: 65vh !important;
 }
-.crypto-card{
+.f1-card{
   min-width: 250px;
 }
-.crypto-card .crypto-image{
-  width:35px;
+.f1-card .f1-image{
+  width:200px;
 }
 .select-timeperiod{
   width: 200px !important;

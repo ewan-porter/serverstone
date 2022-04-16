@@ -13,7 +13,7 @@ export const f1Api = createApi({
         }),
 
         getStandings: builder.query({
-            query: () => createRequest('http://ergast.com/api/f1/current/driverStandings')
+            query: (count) => createRequest(`/current/driverStandings.json?limit=${count}`)
         }),
 
     }),
