@@ -4,7 +4,7 @@ import { Typography, Row, Col, Statistic, Card } from "antd";
 import { Link } from "react-router-dom";
 
 import { useGetLastRaceQuery } from "../services/f1Api";
-import { Standings, Schedule } from "../components";
+import { Standings, Schedule, News, TrackMap } from "../components";
 
 import ResultsArray from '../services/ResultsArray';
 
@@ -64,6 +64,17 @@ const Homepage = () => {
         <Title level={3} className="show-more"><Link to="/schedule">Show More</Link></Title>
       </div>
       <Schedule simplified/>
+      <div className="home-heading-container">
+        <Title level={2} className="home-title">News</Title>
+        <Title level={3} className="show-more"><Link to="/news">Show More</Link></Title>
+      </div>
+      <News simplified/>
+      <div className="home-heading-container">
+        <Title level={2} className="home-title">Track Map</Title>
+        <Title level={3} className="show-more"><Link to="/trackmap">Show More</Link></Title>
+      </div>
+      <TrackMap/>
+     
     </>
   );
 };

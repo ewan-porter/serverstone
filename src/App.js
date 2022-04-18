@@ -1,7 +1,6 @@
 import "./App.css";
 
 import React, { useState } from "react";
-import TrackMap from "./components/TrackMap";
 import { Routes, Route, Link } from "react-router-dom";
 import { Layout, Typography, Space } from "antd";
 
@@ -10,7 +9,8 @@ import {
   Homepage,
   Schedule,
   Standings,
-  CircuitsMap,
+  News,
+  TrackMap,
 } from "./components";
 
 const App = () => {
@@ -25,11 +25,12 @@ const App = () => {
             <Routes>
               <Route exact path="/" element={<Homepage />}></Route>
               <Route exact path="/standings" element={<Standings />}></Route>
-              <Route exact path="/Schdule" element={<Schedule />}></Route>
+              <Route exact path="/schedule" element={<Schedule />}></Route>
+              <Route exact path="/news" element={<News />}></Route>
               <Route
                 exact
-                path="/circuitsmap"
-                element={<CircuitsMap />}
+                path="/trackmap"
+                element={<TrackMap />}
               ></Route>
             </Routes>
           </div>

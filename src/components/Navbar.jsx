@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Menu, Typography, Avatar } from "antd";
 import { Link } from 'react-router-dom';
-import { FlagOutlined, FieldTimeOutlined, CarOutlined, UserOutlined  } from '@ant-design/icons';
+import { FlagOutlined, FieldTimeOutlined, CarOutlined, UserOutlined, GlobalOutlined} from '@ant-design/icons';
 
 import icon from '../images/logo.png';
 
@@ -24,8 +24,11 @@ const Navbar = () => {
            <Menu.Item icon={<UserOutlined />}>
              <Link to="/schedule">Schedule</Link>
            </Menu.Item>
+           <Menu.Item icon={<GlobalOutlined />}>
+             <Link to="/news">News</Link>
+           </Menu.Item>
            <Menu.Item icon={<FlagOutlined/>}>
-             <Link to="/circuitsmap">Circuits Map</Link>
+             <Link to="/trackmap">Track Map</Link>
            </Menu.Item>
          </Menu>
         

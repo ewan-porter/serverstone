@@ -35,12 +35,16 @@ const Standings = ({ simplified }) => {
 
   return (
     <>
-      <div className="search-driver">
+    {!simplified &&(
+<div className="search-driver">
         <Input
           placeholder="Search Drivers or Constructors"
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
+
+    )}
+      
 
       <Row gutter={[32, 32]} className="f1-card-container">
         {leaderboard?.map((index) => (

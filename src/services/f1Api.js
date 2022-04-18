@@ -5,7 +5,7 @@ const baseUrl = 'http://ergast.com/api/f1';
 const createRequest = (url) =>({url})
 
 export const f1Api = createApi({
-    reducer: 'f1Api',
+    reducerPath: 'f1Api',
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
         getLastRace: builder.query({
@@ -16,13 +16,18 @@ export const f1Api = createApi({
             query: (count) => createRequest(`/current/driverStandings.json?limit=${count}`)
         }),
 
+        getSchedule: builder.query({
+            query: () => createRequest(`/current.json`)
+        }),
+
     }),
     
 })
 
 export const {
     useGetLastRaceQuery,
-    useGetStandingsQuery
+    useGetStandingsQuery,
+    useGetScheduleQuery
 } = f1Api;
 
 

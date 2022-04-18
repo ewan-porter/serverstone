@@ -2,3 +2,11 @@
     width: 50%;
     height: 80vh;
   }
+
+  .popup-image {
+    max-width: 200px;
+  }
+
+  .leaflet-popup-content {
+    width: 250px!important;
+  }
