@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.less";
 
 import React, { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
@@ -11,6 +11,7 @@ import {
   Standings,
   News,
   TrackMap,
+  DriverDetails
 } from "./components";
 
 const App = () => {
@@ -25,6 +26,9 @@ const App = () => {
             <Routes>
               <Route exact path="/" element={<Homepage />}></Route>
               <Route exact path="/standings" element={<Standings />}></Route>
+              <Route exact path="/standings/:driverId" element = {<DriverDetails />}> 
+              
+            </Route>
               <Route exact path="/schedule" element={<Schedule />}></Route>
               <Route exact path="/news" element={<News />}></Route>
               <Route

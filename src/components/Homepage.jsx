@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import millify from "millify";
-import { Typography, Row, Col, Statistic, Card } from "antd";
+
+
+import { Typography, Row, Col, Card } from "antd";
 import { Link } from "react-router-dom";
 
 import { useGetLastRaceQuery } from "../services/f1Api";
@@ -29,12 +29,12 @@ const Homepage = () => {
  
   return (
     <>
-      <Title level={2} className="heading">
+      <Title level={2} className="heading" id="top">
         Latest Race Results
       </Title>
    
       <Row>
-        <Col span={24}>
+        <Col span={8}>
           {" "}
           <Card 
           title={raceTrack.raceName} 
@@ -49,10 +49,13 @@ const Homepage = () => {
             <p><b>Date: </b>{raceTrack.date}</p>
           </Card>
         </Col>
+        <Col span={16}>
+          <ResultsArray/>
+        </Col>
       </Row>
 
       
-          <ResultsArray/>
+          
      
       <div className="home-heading-container">
         <Title level={2} className="home-title">Current Standings</Title>

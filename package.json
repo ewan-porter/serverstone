@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/dark-theme": "^2.0.2",
     "@ant-design/icons": "^4.7.0",
+    "@craco/craco": "^6.4.3",
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
@@ -11,6 +13,7 @@
     "antd": "^4.19.5",
     "axios": "^0.26.1",
     "chart.js": "^3.7.1",
+    "craco-less": "^2.0.0",
     "html-react-parser": "^1.4.10",
     "leaflet": "^1.6.0",
     "millify": "^4.0.0",
@@ -25,9 +28,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

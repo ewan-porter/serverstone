@@ -1,3 +1,5 @@
+
+
 :root{
   --text-primary:#000;
   --bgPrimary:#fff;
@@ -7,15 +9,18 @@
  --border: #d9d9d9;
 }
 
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
-a:hover{
-  color: var(--pink) !important;
-}
+
+
+
 
 .app{
   display: flex;
@@ -24,7 +29,7 @@ a:hover{
 
 .navbar{
   flex: 0.2;
-  background-color: rgb(0, 21, 41);
+  background-color: rgb(15,15,15);
 }
 
 .main{
@@ -36,20 +41,22 @@ a:hover{
   padding: 20px;
 }
 .nav-container{
-  position: fixed;
+  /* position: fixed; */
   left: 0;
-  margin: 10px;
+
   height: 100vh;
   margin: 0px;
-  background-color: rgb(0, 21, 41);
+  background-color: rgb(15,15,15);
+ 
 }
 
 .logo-container{
-  background-color: #001529;
+  background-color: #0F0F0F;
   display: flex;
   padding: 20px;
   align-items: center;
-  width: 100%;
+  width:100%
+
 }
 .logo{
   margin:0 0 0 15px;
@@ -133,11 +140,11 @@ a:hover{
   }
 }
 
-.coin-detail-container{
+.driver-detail-container{
   margin: 30px;
 }
 
-.coin-heading-container{
+.driver-heading-container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,12 +155,12 @@ a:hover{
   gap: 10px;
 }
 
-.coin-heading-container .coin-name{
+.driver-heading-container .driver-name{
   font-weight: 900;
   color: var(--pink);
 }
 
-.coin-heading-container p{
+.driver-heading-container p{
   font-size: 1rem;
   opacity: 0.9;
   margin-bottom: 20px;
@@ -161,7 +168,7 @@ a:hover{
 
 .stats-container{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   gap: 40px;
 }
@@ -173,13 +180,13 @@ a:hover{
   color: var(--pink);
 }
 
-.coin-details-heading{
+.driver-details-heading{
   font-weight: 700 !important;
   margin-top: 20px !important;
   color: var(--pink) !important;
 }
 
-.coin-stats{
+.driver-stats{
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
@@ -189,7 +196,7 @@ a:hover{
 
 }
 
-.coin-stats-name{
+.driver-stats-name{
   display: flex;
   gap: 10px;
   font-size: 1rem;
@@ -199,7 +206,7 @@ a:hover{
   font-weight: 800;
 }
 
-.coin-value-statistics-heading p{
+.driver-statistics-heading p{
   font-size: 1rem;
   opacity: 0.9;
 }
@@ -364,13 +371,13 @@ width: 70%;
 .f1-card .f1-image{
   width:200px;
 }
-.select-timeperiod{
+.select-round{
   width: 200px !important;
   margin-top: 20px !important;
 }
 
 .footer {
-  background-color: #001529;
+  background-color: #0F0F0F;
   display: flex;
   flex-direction: column;
   padding: 20px;

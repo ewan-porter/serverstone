@@ -5,16 +5,17 @@ import { Card, Row, Col, Input } from "antd";
 import driverImages from "../images/drivers/driverIndex";
 
 import { useGetStandingsQuery } from "../services/f1Api";
-import { filter } from "domutils";
+
 
 const Standings = ({ simplified }) => {
   const count = simplified ? 8 : 100;
-  const { data, isFetching } = useGetStandingsQuery(count);
+ const { data, isFetching } = useGetStandingsQuery(count);
   const [searchTerm, setSearchTerm] = useState("");
 
   const [leaderboard, setLeaderboard] = useState();
 
-  useEffect(() => {
+  useEffect(() => { 
+    
     setLeaderboard(
       data?.MRData?.StandingsTable?.StandingsLists[0].DriverStandings
     );
@@ -49,7 +50,7 @@ const Standings = ({ simplified }) => {
       <Row gutter={[32, 32]} className="f1-card-container">
         {leaderboard?.map((index) => (
           <Col xs={24} sm={12} lg={6} className="f1-card" key={index.position}>
-            <Link to={`/standings/${index.position}`}>
+            <Link to={`/standings/${index.Driver.driverId}`}>
               <Card
                 title={`${index.position}. ${index.Driver.familyName}`}
                 cover={

@@ -20,6 +20,16 @@ export const f1Api = createApi({
             query: () => createRequest(`/current.json`)
         }),
 
+        getDriverdetails: builder.query({
+            query: () => createRequest(`/current/driverStandings.json`)
+        }),
+
+        getDriverresults: builder.query({
+            query: (roundNumber) => createRequest(`/current/${roundNumber}/results.json`)
+        }),
+
+      
+
     }),
     
 })
@@ -27,7 +37,9 @@ export const f1Api = createApi({
 export const {
     useGetLastRaceQuery,
     useGetStandingsQuery,
-    useGetScheduleQuery
+    useGetScheduleQuery,
+    useGetDriverdetailsQuery,
+    useGetDriverresultsQuery
 } = f1Api;
 
 
