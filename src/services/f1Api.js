@@ -11,6 +11,9 @@ export const f1Api = createApi({
         getLastRace: builder.query({
             query: () => createRequest('/current/last/results.json')
         }),
+        getLastRaceQualifying: builder.query({
+            query: () => createRequest('/current/last/qualifying.json')
+        }),
 
         getStandings: builder.query({
             query: (count) => createRequest(`/current/driverStandings.json?limit=${count}`)
@@ -36,6 +39,7 @@ export const f1Api = createApi({
 
 export const {
     useGetLastRaceQuery,
+    useGetLastRaceQualifyingQuery,
     useGetStandingsQuery,
     useGetScheduleQuery,
     useGetDriverdetailsQuery,

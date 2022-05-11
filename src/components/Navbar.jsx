@@ -20,7 +20,7 @@ return () => window.removeEventListener('resize', handleResize);
 }, []);
 
 useEffect(() => {
-if (screenSize <= 800) {
+if (screenSize <= 1070) {
   setActiveMenu(false);
 } else {
   setActiveMenu(true);
