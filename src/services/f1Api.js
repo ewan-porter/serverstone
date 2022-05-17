@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const baseUrl = 'http://ergast.com/api/f1';
+const baseUrl = 'https://ergast.com/api/f1';
 
 const createRequest = (url) =>({url})
 

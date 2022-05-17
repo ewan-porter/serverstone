@@ -15,7 +15,7 @@ import ScrollToTop from "./services/ScrollToTop";
 
 
 ReactDOM.render(
-  <Router>
+  <Router basename={'/serverstone'}>
     <ScrollToTop>
     <Provider store={store}>
        <App />
