@@ -30,7 +30,7 @@ if (screenSize <= 1070) {
   return (
     <div className='nav-container'>
         <div className='logo-container'>
-            <Avatar src={icon} shape="square" size="small"/>
+            
             <Typography.Title level={2} className="logo">
                 <Link to="/">Serverstone</Link>
             </Typography.Title>
@@ -40,19 +40,24 @@ if (screenSize <= 1070) {
             </div>
             {activeMenu && (
               <Menu theme="dark">
-           <Menu.Item icon={<CarOutlined />}>
+           <Menu.Item icon={<CarOutlined />}
+           key="Home">
              <Link to="/">Home</Link>
            </Menu.Item>
-           <Menu.Item icon={<FieldTimeOutlined />}>
+           <Menu.Item icon={<FieldTimeOutlined />}
+           key="Standings">
              <Link to="/standings">Standings</Link>
            </Menu.Item>
-           <Menu.Item icon={<UserOutlined />}>
+           <Menu.Item icon={<UserOutlined />}
+           key="Schedule">
              <Link to="/schedule">Schedule</Link>
            </Menu.Item>
-           <Menu.Item icon={<GlobalOutlined />}>
+           <Menu.Item icon={<GlobalOutlined />}
+           key="News">
              <Link to="/news">News</Link>
            </Menu.Item>
-           <Menu.Item icon={<FlagOutlined/>}>
+           <Menu.Item icon={<FlagOutlined/>}
+           key="Track Map">
              <Link to="/trackmap">Track Map</Link>
            </Menu.Item>
          </Menu>

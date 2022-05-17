@@ -7,6 +7,8 @@ import App from './App';
 import store from './app/store';
 
 
+import ScrollToTop from "./services/ScrollToTop";
+
 
 
 
@@ -14,10 +16,11 @@ import store from './app/store';
 
 ReactDOM.render(
   <Router>
+    <ScrollToTop>
     <Provider store={store}>
        <App />
     </Provider>
-   
+   </ScrollToTop>
   </Router>,
   document.getElementById('root')
 );

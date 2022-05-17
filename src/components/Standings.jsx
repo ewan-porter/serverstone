@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Card, Row, Col, Input, AutoComplete } from "antd";
+import { Card, Row, Col, Input } from "antd";
 import { ScreenSize } from "../services/ScreenSize";
 
 import driverImages from "../images/drivers/driverIndex";
 
 import { useGetStandingsQuery } from "../services/f1Api";
+import Loader from "./Loader";
 
 const Standings = ({ simplified }) => {
   const screenSize = ScreenSize();
@@ -39,7 +40,7 @@ const Standings = ({ simplified }) => {
     setLeaderboard(filteredData);
   }, [data, searchTerm]);
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader/>
 
   return (
     <>

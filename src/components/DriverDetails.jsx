@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import HTMLReactParser from "html-react-parser";
+import React, { useState } from "react";
+
 import { useParams } from "react-router-dom";
 import driverImages from "../images/drivers/driverIndex";
 import { Col, Row, Typography, Select, Image, Card, Space } from "antd";
 import {
-  StopOutlined,
   TrophyOutlined,
   OrderedListOutlined,
   CarOutlined,
@@ -21,8 +20,9 @@ import {
   useGetScheduleQuery,
 } from "../services/f1Api";
 import DriverResult from "./DriverResult";
+import Loader from "./Loader";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 const { Option } = Select;
 
 const DriverDetails = () => {
@@ -38,6 +38,8 @@ const DriverDetails = () => {
   const { data: raceResult } = useGetDriverresultsQuery(roundNumber);
 
   const round = [];
+
+  if (isFetching) return <Loader/>
 
   for (let i = 0; i < currentRound; i++) {
     round.push(i);

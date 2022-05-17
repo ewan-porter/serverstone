@@ -5,16 +5,17 @@ import moment from 'moment';
 import Newsimage from '../images/Newsimage.jpg';
 
 import { useGetF1NewsQuery } from '../services/f1NewsApi';
+import Loader from './Loader';
 
 const {Text, Title} = Typography;
-const { Option } = Select;
+
 
 
 
 const News = ({simplified}) => {
 const { data: f1News } = useGetF1NewsQuery({q: 'Formula-1', count: simplified ? 6 : 12})
 
-if(!f1News?.value) return 'Loading....';
+if(!f1News?.value) return <Loader/>
 
   return (
    <Row gutter={[24, 24]}>

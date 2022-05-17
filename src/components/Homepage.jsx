@@ -5,6 +5,7 @@ import { useGetLastRaceQuery } from "../services/f1Api";
 import { Standings, Schedule, News, TrackMap } from "../components";
 import QualifyingArray from "../services/QualifyingArray";
 import ResultsArray from "../services/ResultsArray";
+import Loader from './Loader';
 
 
 import circuitImages from "../images/circuits/circuitIndex";
@@ -17,7 +18,7 @@ const Homepage = () => {
   const { data, isFetching } = useGetLastRaceQuery();
   const raceTrack = data?.MRData?.RaceTable?.Races[0];
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader/>
 
   const circuitUrl = raceTrack.Circuit.circuitId;
 

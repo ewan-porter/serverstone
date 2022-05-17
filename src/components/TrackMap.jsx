@@ -1,71 +1,65 @@
-import "./TrackMap.css"
 
 import React, { useState, useEffect } from "react";
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useGetScheduleQuery } from "../services/f1Api";
-import circuitImages from '../images/circuits/circuitIndex';
+import circuitImages from "../images/circuits/circuitIndex";
+import { Col, Typography } from "antd";
+import Loader from "./Loader";
 
+const { Title } = Typography;
 
 
 const TrackMap = () => {
+  const { data, isFetching } = useGetScheduleQuery();
 
-const {data, isFetching } = useGetScheduleQuery();
+  const [location, setLocation] = useState();
 
-const [location, setLocation] = useState();
+  useEffect(() => {
+    setLocation(data?.MRData?.RaceTable.Races);
+  });
 
-useEffect(() => {
-  setLocation(
-    data?.MRData?.RaceTable.Races
-  );
-},);
-
-
-
-if(isFetching) return "Loading...";
-
-
-
-
-
-
-
+  if (isFetching) return <Loader/>
 
   return (
     <>
-<MapContainer center={[51.505, -0.09]} zoom={3}>
-             <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              
-            {location?.map((index) => (
-                <Marker
-                                key={index.raceName}
-                                position={[
-                                  parseInt(index.Circuit.Location.lat),
-                                  parseInt(index.Circuit.Location.long),
-                                ]}
-                              > <Popup>
-                                  <h2>{index.Circuit.circuitName}</h2>
-                                  <a href={index.Circuit.url} target="_blank"> <img className="popup-image" src={circuitImages[index.Circuit.circuitId]}></img></a>
+      <Col span={24} className="track-container">
+        <Title>2022 Season Tracks</Title>
+        <Title level={4}>Take a look at some of the tracks around the world</Title>
+        <MapContainer center={[51.505, -0.09]} zoom={3}>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
 
-                                </Popup>
-                              </Marker>
-            ))}
- 
-                  
-               
-            </MapContainer>
-    
-
+          {location?.map((index) => (
+            <Marker
+              key={index.raceName}
+              position={[
+                parseInt(index.Circuit.Location.lat),
+                parseInt(index.Circuit.Location.long),
+              ]}
+            >
+              {" "}
+              <Popup>
+                <h2>{index.Circuit.circuitName}</h2>
+                <a href={index.Circuit.url} target="_blank">
+                  {" "}
+                  <img
+                    className="popup-image"
+                    src={circuitImages[index.Circuit.circuitId]}
+                  ></img>
+                </a>
+              </Popup>
+            </Marker>
+          ))}
+        </MapContainer>
+      </Col>
     </>
   );
 };
 
-export default TrackMap
-
-
+export default TrackMap;
 
 // export default class TrackMap extends React.Component {
 
@@ -80,7 +74,6 @@ export default TrackMap
 //         });
 //       }
 
-
 //       render() {
 //         return (
 //           <div>
@@ -89,8 +82,7 @@ export default TrackMap
 //                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 //                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 //               />
-              
-    
+
 //      {this.state.tracks.map((track) => (
 //               <Marker
 //                 key={track.circuitId}
@@ -103,11 +95,9 @@ export default TrackMap
 //                 </Popup>
 //               </Marker>
 //             ))}
-                  
-               
+
 //             </MapContainer>
-    
-           
+
 //           </div>
 //           // <ul>
 //           //     {
@@ -126,5 +116,3 @@ export default TrackMap
 //         );
 //       }
 //     }
-    
-    
