@@ -4,7 +4,7 @@ import { useGetLastRaceQuery } from "../services/f1Api";
 
 import { Table } from 'antd';
 import { ScreenSize } from "../services/ScreenSize";
-
+import Loader from '../components/Loader';
 
 
 const ResultsArray = () => {
@@ -100,7 +100,7 @@ useEffect(() => {
   ))))
 }, []);
 
-
+if (isFetching) return <Loader/>
 return (
   <Table dataSource={dataSource} columns={columns} />
 );

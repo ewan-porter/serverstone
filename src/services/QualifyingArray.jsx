@@ -4,6 +4,7 @@ import { useGetLastRaceQualifyingQuery } from "../services/f1Api";
 
 import { Table } from 'antd';
 import { ScreenSize } from "../services/ScreenSize";
+import Loader from '../components/Loader';
 
 
 
@@ -11,7 +12,7 @@ const QualifyingArray = () => {
 
 const screenSize = ScreenSize();
 
-const { data } = useGetLastRaceQualifyingQuery();
+const { data, isFetching } = useGetLastRaceQualifyingQuery();
 
 
 const qualifyingTable = data?.MRData?.RaceTable?.Races[0].QualifyingResults
@@ -95,7 +96,7 @@ useEffect(() => {
 }, [qualifyingTable]);
 
 
-
+if (isFetching) return <Loader/>
 return (
   <Table dataSource={qualifyingData} columns={qualifyingColumns} />
 );
