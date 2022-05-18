@@ -18,7 +18,7 @@ const racetable = data?.MRData?.RaceTable?.Races[0].Results
 const [dataSource, setDataSource ] = useState([])
 
 
-const columns = (screenSize == false ? [
+const columns = (screenSize === false ? [
   {
     title: 'Position',
     dataIndex: 'position',
@@ -28,11 +28,6 @@ const columns = (screenSize == false ? [
     title: 'Driver',
     dataIndex: 'driverId',
     key: 'driverId'
-  },
-  {
-    title: 'No',
-    dataIndex: 'permanentNumber',
-    key: 'permanentNumber'
   },
   {
     title: 'Constructor',
@@ -51,22 +46,38 @@ const columns = (screenSize == false ? [
   },
 ] : [
   {
-    title: 'Position',
-    dataIndex: 'position',
-    key: 'position',
+    title: "Position, Driver",
+    render: (record) => (
+      <React.Fragment>
+        {record.position}
+        <br />
+        {record.driverId}
+    
+      </React.Fragment>
+    ),
+    responsive: ["xs"]
   },
+ 
+ 
   {
-    title: 'Driver',
-    dataIndex: 'driverId',
-    key: 'driverId'
+    title: 'Constructor',
+    dataIndex: 'constructor',
+    key: 'constructor'
   },
 
-  
   {
-    title: 'Time',
-    dataIndex: 'time',
-    key: 'time'
+    title: "Time, Points",
+    render: (record) => (
+      <React.Fragment>
+        {record.time}
+        <br />
+        {record.points}
+    
+      </React.Fragment>
+    ),
+    responsive: ["xs"]
   },
+  
  
  
 ]);
@@ -80,7 +91,7 @@ useEffect(() => {
       key: index.position,
       position: index.position,
       driverId: index.Driver.givenName + ' ' + index.Driver.familyName,
-      permanentNumber: index.Driver.permanentNumber,
+    
       constructor: index.Constructor.name,
       time: index?.Time?.time ?? index.status,
       points: index.points

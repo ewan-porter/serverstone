@@ -54,14 +54,22 @@ const scheduleColumns = (screenSize === false ? [
     key: 'round',
   },
   {
-    title: 'Race',
-    dataIndex: 'raceName',
-    key: 'raceName'
+    title: "Race, Circuit",
+    render: (record) => (
+      <React.Fragment>
+        {record.raceName}
+        <br />
+        {record.circuitName}
+    
+      </React.Fragment>
+    ),
+    responsive: ["xs"]
   },
+
   {
-    title: 'Circuit',
-    dataIndex: 'circuitName',
-    key: 'circuitName'
+    title: 'Date',
+    dataIndex: 'date',
+    key: 'date'
   },
 ]);
 

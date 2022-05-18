@@ -58,6 +58,20 @@ const qualifyingColumns = (screenSize === false ? [
     dataIndex: 'driverId',
     key: 'driverId'
   },
+  {
+    title: "Q1, Q2, Q3",
+    render: (record) => (
+      <React.Fragment>
+        {record.q1}
+        <br />
+        {record.q2}
+        <br />
+        {record.q3}
+    
+      </React.Fragment>
+    ),
+    responsive: ["xs"]
+  },
 
   
  
